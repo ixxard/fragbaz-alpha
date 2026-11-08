@@ -1,9 +1,112 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fragbaz / Friends Alpha</title>
-<style>body{margin:0;background:#11161b;color:#e9edf0;font:17px/1.6 system-ui,sans-serif}main{max-width:650px;margin:10vh auto;padding:32px}h1{font-size:clamp(38px,9vw,64px);letter-spacing:.08em;line-height:1;margin:0 0 12px}small{color:#aab8c2}a{color:#e5aa70}a.download{display:inline-block;background:#c34925;color:white;text-decoration:none;padding:13px 23px;margin:20px 0 12px;font-weight:700}nav{display:flex;gap:24px;flex-wrap:wrap}code{font-size:11px;overflow-wrap:anywhere}footer{margin-top:40px;border-top:1px solid #34414a;padding-top:18px;font-size:13px}</style>
-<main><small>FRIENDS ALPHA / 0.1.0-alpha.20261108-r4</small><h1>FRAGBAZ</h1>
-<p>Arena combat. Teamwork. Build your own maps.</p>
-<a class="download" href="https://github.com/ixxard/fragbaz-alpha/releases/download/v0.1.0-alpha.20261108-r4/Fragbaz-0.1.0-alpha.20261108-r4-win64.zip">Download for Windows</a>
-<p>A tester key is required. Ask your host for an invitation. Paste the key when you open the game or either editor.</p>
-<nav><a href="Guide.pdf">Quick guide + map making</a><a href="Credits.pdf">Credits</a><a href="https://github.com/ixxard/fragbaz-alpha/issues/new?template=bug.yml">Report a bug</a></nav>
-<footer>Windows x64 / Vulkan driver / 2 GB free space.<br>The ZIP includes the game, map editor and Plume editor. Engine source is private.<br>1,024 players at 60 Hz remains an engineering target.<p>SHA-256<br><code>3b2432b87ab4a432397efd77f220fa679203c8e2e37a834ae41b68f5889d5592</code></p></footer></main></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111313">
+  <meta name="description" content="Fragbaz is an arena FPS and engine in development. This pre-alpha is suitable only for invited testers. Download the game and content tools.">
+  <title>Fragbaz — Pre-alpha playtest</title>
+  <style>
+    :root { color-scheme: dark; --paper:#f1eee7; --muted:#aaaead; --line:#343837; --fire:#ff7046; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#111313; color:var(--paper); font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    body::before { content:""; position:absolute; inset:0 0 auto; height:620px; pointer-events:none;
+      background:radial-gradient(ellipse at 75% 0,rgba(255,112,70,.075),transparent 60%); }
+    a { color:inherit; text-underline-offset:5px; text-decoration-thickness:1px; }
+    a:hover { color:var(--fire); }
+    a:focus-visible,summary:focus-visible { outline:2px solid var(--fire); outline-offset:6px; }
+    .wrap { position:relative; width:min(100% - 96px,1000px); margin:auto; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:30px 0; border-bottom:1px solid var(--line); }
+    .brand { font-weight:800; letter-spacing:.12em; font-size:13px; text-decoration:none; }
+    .brand span { color:var(--fire); margin-right:12px; }
+    nav { display:flex; gap:26px; font-size:13px; color:var(--muted); }
+    nav a { text-decoration:none; }
+    .hero { padding:62px 0 39px; }
+    .eyebrow { display:flex; align-items:center; gap:10px; margin:0 0 29px; color:var(--fire); font:600 11px/1.5 ui-monospace,Consolas,monospace; text-transform:uppercase; letter-spacing:.14em; }
+    .eyebrow::before { content:""; width:6px; height:6px; background:var(--fire); }
+    h1 { margin:0; font-family:Impact,"Arial Narrow",sans-serif; font-size:clamp(76px,17vw,190px); font-weight:900; line-height:.88; letter-spacing:-.035em; }
+    .intro { margin:25px 0 0; max-width:580px; font-size:clamp(18px,2.4vw,23px); line-height:1.5; color:#c4c6c2; }
+    .status { display:grid; grid-template-columns:.75fr 1.65fr; gap:45px; padding:30px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    h2 { margin:0; font-size:13px; line-height:1.6; text-transform:uppercase; letter-spacing:.1em; font-weight:750; }
+    .status h2 { color:var(--fire); }
+    .status p { margin:0 0 13px; }
+    .status p:last-child { margin:0; color:var(--muted); }
+    .download { display:flex; align-items:center; gap:30px; padding:30px 0 34px; }
+    .button { display:inline-flex; align-items:center; justify-content:space-between; gap:24px; padding:15px 21px; color:#151716; background:var(--fire); text-decoration:none; font-size:14px; font-weight:800; white-space:nowrap; }
+    .button:hover { color:#151716; background:#ff956f; }
+    .button span { font-size:20px; line-height:1; }
+    .access { margin:0; max-width:370px; font-size:13px; line-height:1.6; color:var(--muted); }
+    .access strong { color:var(--paper); font-weight:650; }
+    .requirements { margin:0; padding-bottom:30px; font:11px/1.7 ui-monospace,Consolas,monospace; color:var(--muted); }
+    .credits { display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:30px; margin:0; padding:27px 0 30px; border-top:1px solid var(--line); }
+    dt { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:7px; }
+    dd { margin:0; font-size:16px; }
+    dd a { text-decoration-color:#5c605c; }
+    footer { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; padding:22px 0 35px; border-top:1px solid var(--line); font-size:11px; color:var(--muted); }
+    footer a { text-decoration-color:#5c605c; }
+    .integrity { max-width:520px; text-align:right; }
+    summary { cursor:pointer; }
+    .integrity p { margin:12px 0 0; }
+    code { font:10px/1.6 ui-monospace,Consolas,monospace; overflow-wrap:anywhere; }
+    @media(max-width:650px) {
+      .wrap { width:calc(100% - 40px); }
+      header { padding:22px 0; gap:15px; }
+      nav { gap:18px; font-size:12px; }
+      .brand { font-size:11px; }
+      .brand span { margin-right:6px; }
+      .hero { padding:42px 0 29px; }
+      .eyebrow { font-size:10px; letter-spacing:.09em; margin-bottom:22px; }
+      h1 { font-size:clamp(56px,18vw,116px); }
+      .intro { margin-top:20px; }
+      .status { grid-template-columns:1fr; gap:14px; padding:24px 0; }
+      .status p { font-size:14px; }
+      .download { flex-direction:column; align-items:stretch; gap:17px; padding:25px 0 20px; }
+      .button { justify-content:center; }
+      .credits { grid-template-columns:1fr 1fr; gap:24px 16px; padding:25px 0; }
+      dt { font-size:10px; }
+      dd { font-size:14px; }
+      footer { flex-direction:column; gap:17px; }
+      .integrity { text-align:left; max-width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#top" aria-label="Fragbaz home"><span aria-hidden="true">F/</span> FRAGBAZ</a>
+      <nav aria-label="Playtest resources"><a href="Guide.pdf">Quick guide</a><a href="https://github.com/ixxard/fragbaz-alpha/issues/new?template=bug.yml">Report a bug</a></nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="title">
+        <p class="eyebrow">Pre-alpha / invited testers only</p>
+        <h1 id="title">FRAGBAZ</h1>
+        <p class="intro">An arena FPS and engine in development.<br>Combat, teamwork, and maps you can make your own.</p>
+      </section>
+      <section class="status" aria-labelledby="status-title">
+        <h2 id="status-title">Early build.<br>Real testing.</h2>
+        <div>
+          <p>This pre-alpha is <strong>suitable only for testers</strong>. Expect unfinished systems, bugs, and breaking changes.</p>
+          <p><strong>The current build does not support 1,024 players in a single arena.</strong> Supporting that population at 60 Hz remains a development target.</p>
+          <p>Almost all current assets are temporary and will be replaced with original art, models, animations, and audio.</p>
+        </div>
+      </section>
+      <section aria-label="Download the playtest">
+        <div class="download">
+          <a class="button" href="https://github.com/ixxard/fragbaz-alpha/releases/download/v0.1.0-alpha.20261108-r4/Fragbaz-0.1.0-alpha.20261108-r4-win64.zip">Download Windows pre-alpha <span aria-hidden="true">↗</span></a>
+          <p class="access"><strong>Tester key required.</strong> Ask your host for an invitation. One activation unlocks the game, map editor, and Plume editor.</p>
+        </div>
+        <p class="requirements">WINDOWS X64 / VULKAN DRIVER / 2 GB FREE SPACE</p>
+      </section>
+      <dl class="credits" aria-label="People and technology">
+        <div><dt>Developer</dt><dd><a href="https://github.com/ixxard">ixxard</a></dd></div>
+        <div><dt>Marketing Officer</dt><dd>Sakshi Chaubey</dd></div>
+        <div><dt>Built with</dt><dd><a href="https://aardappel.github.io/goose/">Goose programming language</a></dd></div>
+      </dl>
+    </main>
+    <footer>
+      <a href="Credits.pdf">Third-party media credits &amp; licenses</a>
+      <details class="integrity"><summary>Build &amp; checksum</summary><p>0.1.0-alpha.20261108-r4<br>SHA-256<br><code>3b2432b87ab4a432397efd77f220fa679203c8e2e37a834ae41b68f5889d5592</code></p></details>
+    </footer>
+  </div>
+</body>
+</html>
