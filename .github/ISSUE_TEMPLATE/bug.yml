@@ -1,0 +1,18 @@
+name: Bug report
+description: Report an alpha problem
+title: "[Alpha] "
+body:
+  - type: textarea
+    attributes:
+      label: What happened and how to reproduce
+      description: Include map, mode, actors, weapon/action, expected result and steps.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Build and hardware
+      description: Alpha version, CPU, GPU, driver and Windows version. Never paste your tester key.
+  - type: textarea
+    attributes:
+      label: Optional evidence
+      description: Attach a short clip or a reviewed local bug-report ZIP. Remove private details before submitting.
