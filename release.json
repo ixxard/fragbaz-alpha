@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0-alpha.20261108-r4",
+  "platform": "Windows x64",
+  "download": "https://github.com/ixxard/fragbaz-alpha/releases/download/v0.1.0-alpha.20261108-r4/Fragbaz-0.1.0-alpha.20261108-r4-win64.zip",
+  "bytes": 285280045,
+  "sha256": "3b2432b87ab4a432397efd77f220fa679203c8e2e37a834ae41b68f5889d5592",
+  "keyRequired": true,
+  "guide": "Guide.pdf",
+  "sourceIncluded": false
+}
