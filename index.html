@@ -38,6 +38,11 @@
     .access { margin:0; max-width:370px; font-size:13px; line-height:1.6; color:var(--muted); }
     .access strong { color:var(--paper); font-weight:650; }
     .requirements { margin:0; padding-bottom:30px; font:11px/1.7 ui-monospace,Consolas,monospace; color:var(--muted); }
+    .contact { display:grid; grid-template-columns:.75fr 1.65fr; gap:45px; padding:27px 0; border-top:1px solid var(--line); scroll-margin-top:24px; }
+    .contact h2 { color:var(--fire); }
+    .contact p { margin:0 0 13px; font-size:14px; }
+    .contact p:last-child { margin:0; color:var(--muted); }
+    .contact a { overflow-wrap:anywhere; }
     .credits { display:grid; grid-template-columns:1fr 1.3fr 1fr; gap:30px; margin:0; padding:27px 0 30px; border-top:1px solid var(--line); }
     dt { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.1em; margin-bottom:7px; }
     dd { margin:0; font-size:16px; }
@@ -62,6 +67,7 @@
       .status p { font-size:14px; }
       .download { flex-direction:column; align-items:stretch; gap:17px; padding:25px 0 20px; }
       .button { justify-content:center; }
+      .contact { grid-template-columns:1fr; gap:14px; padding:24px 0; }
       .credits { grid-template-columns:1fr 1fr; gap:24px 16px; padding:25px 0; }
       dt { font-size:10px; }
       dd { font-size:14px; }
@@ -74,7 +80,7 @@
   <div class="wrap">
     <header>
       <a class="brand" href="#top" aria-label="Fragbaz home"><span aria-hidden="true">F/</span> FRAGBAZ</a>
-      <nav aria-label="Playtest resources"><a href="Guide.pdf">Quick guide</a><a href="https://github.com/ixxard/fragbaz-alpha/issues/new?template=bug.yml">Report a bug</a></nav>
+      <nav aria-label="Playtest resources"><a href="Guide.pdf">Quick guide</a><a href="#contact">Report a bug</a></nav>
     </header>
     <main id="top">
       <section class="hero" aria-labelledby="title">
@@ -93,9 +99,16 @@
       <section aria-label="Download the playtest">
         <div class="download">
           <a class="button" href="https://github.com/ixxard/fragbaz-alpha/releases/download/v0.1.0-alpha.20261108-r4/Fragbaz-0.1.0-alpha.20261108-r4-win64.zip">Download Windows pre-alpha <span aria-hidden="true">↗</span></a>
-          <p class="access"><strong>Tester key required.</strong> Ask your host for an invitation. One activation unlocks the game, map editor, and Plume editor.</p>
+          <p class="access"><strong>Tester key required.</strong> <a href="#contact">Request a key below.</a> One activation unlocks the game, map editor, and Plume editor.</p>
         </div>
         <p class="requirements">WINDOWS X64 / VULKAN DRIVER / 2 GB FREE SPACE</p>
+      </section>
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Keys &amp; bug reports</h2>
+        <div>
+          <p>For a tester key, email <a href="mailto:sankrantc@gmail.com?subject=Fragbaz%20tester%20key">sankrantc@gmail.com</a> or message <a href="https://www.instagram.com/sizzle.rizz/">@sizzle.rizz on Instagram</a>.</p>
+          <p>Report bugs through <a href="https://github.com/ixxard/fragbaz-alpha/issues/new?template=bug.yml">GitHub Issues</a> (GitHub account required), or <a href="mailto:sankrantc@gmail.com?subject=Fragbaz%20bug%20report">email a bug report</a> without a GitHub account. Include the map, mode, player count, and steps to reproduce.</p>
+        </div>
       </section>
       <dl class="credits" aria-label="People and technology">
         <div><dt>Developer</dt><dd><a href="https://github.com/ixxard">Sankrant Chaubey</a></dd></div>
